@@ -1,7 +1,10 @@
 <?php
+namespace TYPO3\CMS\Saltedpasswords\Evaluation;
+
 /***************************************************************
  *  Copyright notice
  *
+ *  (c) Marcus Krause (marcus#exp2009@t3sec.info)
  *  (c) Steffen Ritter (info@rs-websystems.de)
  *  All rights reserved
  *
@@ -24,14 +27,25 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-// Make sure that we are executed only in TYPO3 context
-if (!defined('TYPO3_MODE')) {
-	die('Access denied.');
-}
-/*
- * @deprecated since 6.0, the classname tx_saltedpasswords_emconfhelper and this file is obsolete
- * and will be removed by 7.0. The class was renamed and is now located at:
- * typo3/sysext/saltedpasswords/Classes/Utility/ExtensionManagerConfigurationUtility.php
+/**
+ * Class implementing salted evaluation methods for BE users.
+ *
+ * @author Marcus Krause <marcus#exp2009@t3sec.info>
+ * @author Steffen Ritter <info@rs-websystems.de>
+ * @since 2009-06-14
+ * @package TYPO3
+ * @subpackage tx_saltedpasswords
  */
-require_once \TYPO3\CMS\Core\Extension\ExtensionManager::extPath('saltedpasswords') . 'Classes/Utility/ExtensionManagerConfigurationUtility.php';
+class BackendEvaluator extends \TYPO3\CMS\Saltedpasswords\Evaluation\Evaluator {
+
+	/**
+	 * Class constructor.
+	 */
+	public function __construct() {
+		$this->mode = 'BE';
+	}
+
+}
+
+
 ?>
